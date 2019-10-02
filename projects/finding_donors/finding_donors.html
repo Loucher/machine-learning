@@ -13017,6 +13017,45 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
+<style type="text/css">
+    
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+    </style>
 
 
 <style type="text/css">
@@ -14134,18 +14173,28 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <p>Gradient Boosting classifier is machine learning model. It is one of the Ensemble methods that are using decision trees.</p>
-<p>"Decision tree is tree-like model containing all possible consequences, including change event outcomes, resource costs, and utility" [<a href="https://en.wikipedia.org/wiki/Decision_tree">https://en.wikipedia.org/wiki/Decision_tree</a>]. Decision trees are well know technique but they suffer from very low bias and high variance. That means decision tree makes small assumptions about our target functions and are very susceptible to variance in our data [<a href="https://stats.stackexchange.com/questions/262794/why-does-a-decision-tree-have-low-bias-high-variance">https://stats.stackexchange.com/questions/262794/why-does-a-decision-tree-have-low-bias-high-variance</a>].</p>
+<p>"Decision tree is tree-like model containing all possible consequences, including change event outcomes, resource costs, and utility" [ <a href="https://en.wikipedia.org/wiki/Decision_tree">https://en.wikipedia.org/wiki/Decision_tree</a> ]. Decision trees are well know technique but they make only small assumptions about our target functions and are very susceptible to variance in our data [ <a href="https://stats.stackexchange.com/questions/262794/why-does-a-decision-tree-have-low-bias-high-variance">https://stats.stackexchange.com/questions/262794/why-does-a-decision-tree-have-low-bias-high-variance</a> ].</p>
 <p>Ensemble methods try to combine multiple decision tress in order to produce better results. They are based on priciple that group of multiple models, also called weak learners, can form one strong learner.</p>
 <p>Ensemble methods use tree major approaches to combine weak learners, that are:</p>
 <ul>
-<li><p><strong>Bagging</strong> - Mostly homogeneous weak learners are trained independently in parallel and then are combined by using deterministic averaging process. Training data can be either split between weak learnes (split by rows) or we can train weak learners on specific features (split by columns)</p>
+<li><p><strong>Bagging</strong> - Often uses weak learners of the same type, that can learn either by spliting training data between weak learnes (split by rows) or we can train weak learners on specific features (split by columns).</p>
 </li>
-<li><p><strong>Boosting</strong> - Also uses mostly homogeneous weak learners, but they are trained in iteratively. Weak learner takes output of weak learner from previous step, which is trying to minimize error (difference between predicted and actual value) caused by previous weak learners.</p>
+<li><p><strong>Boosting</strong> - Also often uses weak learners of the same type, but they are trained in sequence. Weak learner takes output of weak learner from previous step and tries to improve on it, this is that so called boosting.</p>
 </li>
-<li><p><strong>Stacking</strong> - Can use various non-homogeneous weak learners that are trained in parallel. Their outpus is then used to create new meta-model or even it can create layer of meta-models from which is created final meta-model.</p>
+<li><p><strong>Stacking</strong> - On the other hand often use various type of weak learners, that are trained independently. Their outpus is then used to create new meta-model or even it can create layer of meta-models from which is created final meta-model.</p>
+<p>[ <a href="https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205">https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205</a> ]</p>
 </li>
 </ul>
-<p>As name suggests, <strong>Gradient Boosting</strong> is ensemble method using Boosting approach with Gradient Descent error optimization. Instead of only local optimization per iteration of one weak learner, gradient boosting uses gradient descent approach that helps model to easly adapt to large number of loss functions.[<a href="https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205">https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9214a10a205</a>]</p>
+<p>As name suggests, <strong>Gradient Boosting</strong> is ensemble method using Boosting approach together with Gradient descent. Gradient descent is algorithm for finding minimum in function. In our case we are trying to find smallest error (minimum) in our model (function). Gradient Boosting achieves that by following these steps:</p>
+<ol>
+<li>Train first model on input data and known target values</li>
+<li>Calculates error residuals, that are actual target value minus predicted value of our model</li>
+<li>We train new model with same input data but error residuals will be our new target value</li>
+<li>Add predicted residuals to previous prediction and we again get our new target values</li>
+<li>Fit another model with new target values </li>
+</ol>
+<p>Gradient Boost will then repeat steps 2 to 5 usually until calculated errors residuals stop to decrease.
+[ <a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d</a> ]</p>
 
 </div>
 </div>
@@ -14194,10 +14243,8 @@ Look at the graph at the bottom left from the cell above(the visualization creat
     <span class="s1">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
     <span class="s1">&#39;min_samples_split&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>    
     <span class="s1">&#39;min_samples_leaf&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">],</span>    
-    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span>
-    <span class="s1">&#39;random_state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">42</span><span class="p">],</span>
+    <span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">]</span>
 <span class="p">}</span>
-
 
 <span class="c1"># TODO: Make an fbeta_score scoring object using make_scorer()</span>
 <span class="n">scorer</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">fbeta_score</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -14339,9 +14386,9 @@ Final F-score on the testing data: 0.7563
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
 <ul>
-<li>My optimized model achieved Accuracy: 0.8731 and F-Score: 0.7563</li>
+<li>My optimized model achieved Accuracy: 0.8731 and F-Score: 0.7563 </li>
 <li>These scores are slightly better than scores of the unoptimized model.</li>
-<li>My Naive Predictor achieved Accuracy score: 0.3295 and F-score: 0.6223, which are significantly lower than my optimized model. </li>
+<li>My Naive Predictor achieved Accuracy score: 0.2478 and F-score: 0.2917, which are significantly lower than my optimized model. </li>
 </ul>
 
 </div>
